@@ -1,6 +1,4 @@
-# Python Repository
-
-<h2>Welcome To My Python Repo</h2>
+# Welcome To My Python Repo
 
 Here is where I will be keeping my scripts that I use to learn python. As I go through Python challenges, the challenges will be kept here.
 
