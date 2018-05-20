@@ -1,16 +1,21 @@
 #!/usr/bin/python2.7
 
-############################################
-###How To Create A Database In sqlAlchemy###
-############################################
+#############################################
+###How To SELECT FROM Tables IN sqlAlchemy###
+#############################################
 
 '''
-This is a small sample on how to create a database using sqlalchemy.
-I created this script to help me and others remember the syntax for creating databases.
+This is a small sample on how to SELECT FROM tables using sqlalchemy.
+I created this script to help me and others remember the syntax for
+reading from database.
+
+In the below script. We first check what tables are available,
+then read from them.
 '''
 
 import sqlalchemy
 from sqlalchemy import create_engine
+from sqlalchemy import inspect
 
 #MySQL Connection string
 #uri = 'mysql://$USERNAME:$PASSWORD@$HOST:$PORT/'
