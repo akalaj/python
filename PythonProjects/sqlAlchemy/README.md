@@ -1,9 +1,7 @@
-# Python Projects
+# sqlAlchemy Project
 
-These are Python projects that involve multi-facted procedures. Usually, a project will involve multiple scripts and these sets of scripts are organized into the folders seen here.
+This is a project I started so I can sqlAlchemy.
 
-<ul>
-  <li><b>sqlAlchemy (Database how-to's)</b></li>
-  <li><b>STC</b></li>
-  <li><b>STC</b></li>
-</ul>  
+Each of the files listed here as my notes and extensive examples on how to do various things with sqlAlchemy.
+
+<img src="https://www.fullstackpython.com/img/logos/sqlalchemy.jpg" alt="sqlAlchemy">
