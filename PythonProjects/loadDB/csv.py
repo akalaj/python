@@ -13,6 +13,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
 from sqlalchemy.dialects.mysql import VARCHAR, CHAR
 from sqlalchemy.sql import select, func
+import sys
 
 ###############
 ###Variables###
@@ -21,6 +22,8 @@ db_uri = "mysql://alchemy:sqlpass@sql.com:3306/customers"
 engine = create_engine(db_uri)
 conn = engine.connect()
 metadata = MetaData()
+instance = sys.argv[1]
+filename = "insert%s.txt" % instance
 
 dec = ["single", "number", "dot", "underscore"]
 
@@ -203,9 +206,11 @@ def getLocation():
 ##########
 
 number = "4803144918"
-quantity = 20000
+quantity = 1000
 
 insValues = {}
+
+file = open(filename, "w")
 
 for i in range(quantity):
 	trans = conn.begin()
@@ -218,17 +223,9 @@ for i in range(quantity):
 	insValues['city'] = location[0]
 	insValues['state'] = location[1]
 	insValues['zip'] = int(location[2])
-	#INSERT = "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",%s" % (firstname,inital,lastname,email,number,location[0],location[1], location[2])
-	#insertValues = "firstname='%s', inital='%s', lastname='%s', email='%s', number='%s', city='%s', state='%s', zip=%s" % (firstname,inital,lastname,email,number,location[0],location[1],location[2])
-	#print insValues
-	ins = customers.insert().values(insValues)
-	conn.execute(ins)
+	#INSERT
+	STR = "\"%s\",\"%s\",\"%s\",\"%s\",%s,\"%s\",\"%s\",%s" % (insValues['firstname'],insValues['inital'],insValues['lastname'],insValues['email'],insValues['number'],insValues['city'],insValues['state'],insValues['zip'])
+	file.write("%s\n" % STR)
 	trans.commit()
 
-#conn.close()
 
-
-#myfile = open("insert.sql", "a")
-#
-#for customer in insertList:
-#	myfile.write("%s\n" % customer)
